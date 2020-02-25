@@ -1,0 +1,47 @@
+{
+  "PATHS":{
+    "main_path":"models_/",
+    "tf_records_training_path":"train_8192_0/",
+    "tf_records_test_path":"test_8192_0/",
+    "database_folder_path":"LibriSpeech/",
+    "npy_database_path":"VAD_16384/VAD_speakers_with_gender_500_16384.npy"
+  },
+  "DATA_GENERATOR":{
+    "sample_rate":16000,
+    "stft_nperseg":512,
+    "stft_noverlap":256,
+    "stft_window":8192,
+    "n_speakers_train":50,
+    "n_repeated_speakers_train":40,
+    "max_speakers_train":4,
+    "min_speakers_train":2,
+    "n_speakers_test":100,
+    "files_per_speaker_test":20,
+    "n_speakers_test_eval":100,
+    "max_speakers_test":4,
+    "min_speakers_test":2,
+    "phase_diff_threshold":60,
+    "training_buffer_size":2,
+    "nframes":1024,
+    "microphones_train":2,
+    "microphones_test":2
+  },
+  "TRAINING": {
+    "network":"BLSTMModel",
+    "globa_steps":750,
+    "n_epochs":3,
+    "batch_size":100,
+    "display_step":100 ,
+    "num_hidden":400,
+    "layers":1,
+    "d_vector":20,
+    "alpha":0.5,
+    "load_session":"false",
+    "activation_function":"tanh",
+    "opt_params":{
+      "optimizer":"RMSProp",
+      "learning_rate":0.00001,
+      "momentum": 0.9
+    }
+  }
+}
